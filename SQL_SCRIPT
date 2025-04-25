@@ -1,0 +1,15 @@
+CREATE TABLE Systeme (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nom_piece VARCHAR(50) NOT NULL,
+    date_installation DATE NOT NULL
+);
+
+CREATE TABLE Mesure (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    id_systeme INT,
+    temperature FLOAT,
+    hygrometrie INT,
+    luminosite INT,
+    date_heure DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (id_systeme) REFERENCES Systeme(id)
+);
